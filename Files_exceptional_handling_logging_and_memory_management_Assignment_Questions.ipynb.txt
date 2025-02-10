@@ -1,0 +1,1094 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Files, exceptional handling,\n",
+        "logging and memory\n",
+        "management\n",
+        "Assignment QuestionsTheory Questions Answers ------"
+      ],
+      "metadata": {
+        "id": "7DLfB5bxhrfo"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        " 1-What is the difference between interpreted and compiled languages ?"
+      ],
+      "metadata": {
+        "id": "K4FFpKAtiENy"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "Ans-\n",
+        "### **Compiled Languages**  \n",
+        "- The entire program is translated into machine code **before execution** using a compiler.  \n",
+        "- The compiled code runs **directly** on the computer’s processor.  \n",
+        "- **Faster execution** since the translation happens beforehand.  \n",
+        "- Errors are detected **at compile time**, before execution.  \n",
+        "- Examples: **C, C++, Rust, Go**  \n",
+        "\n",
+        "### **Interpreted Languages**  \n",
+        "- Code is executed **line by line** by an interpreter **at runtime**.  \n",
+        "- No separate compilation step; the interpreter translates code **on the fly**.  \n",
+        "- **Slower execution** because translation happens while running.  \n",
+        "- Errors appear **at runtime**, which can make debugging easier but may cause crashes mid-execution.  \n",
+        "- Examples: **Python, JavaScript, Ruby, PHP**"
+      ],
+      "metadata": {
+        "id": "XooTvwHiiStS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "2-What is exception handling in Python ?"
+      ],
+      "metadata": {
+        "id": "D_b_Gk3pjHbB"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans - Exception handling in Python is a mechanism to handle runtime errors gracefully without crashing the program. It uses the try-except block to catch and manage exceptions ."
+      ],
+      "metadata": {
+        "id": "et-VzQqejVHF"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "3- What is the purpose of the finally block in exception handling ?"
+      ],
+      "metadata": {
+        "id": "66d7qwwDjomm"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans -  The finally block in Python always executes, regardless of whether an exception occurs or not. It is mainly used for cleanup operations, such as closing files, releasing resources, or disconnecting from a database."
+      ],
+      "metadata": {
+        "id": "-L7BnpbWjv6Q"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "4-  What is logging in Python ?"
+      ],
+      "metadata": {
+        "id": "mutmanLGkD75"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-  Logging in Python is a way to track events that happen while a program runs. It helps developers debug, monitor, and analyze issues by recording messages in a structured manner."
+      ],
+      "metadata": {
+        "id": "FLdcz69WkPJk"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "5-What is the significance of the __del__ method in Python ?"
+      ],
+      "metadata": {
+        "id": "PQ4In5bXkYpr"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans -The __del__ method, also known as the destructor, is called when an object is about to be destroyed (i.e., when it is no longer referenced). It allows you to clean up resources before the object is removed from memory."
+      ],
+      "metadata": {
+        "id": "v_rVEvl-ki36"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "6-What is the difference between import and from ... import in Python ?"
+      ],
+      "metadata": {
+        "id": "7fni53yWkxSC"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans- The import statement loads the entire module, and you must use the module name to access its functions or variables while from ...import specific functions, classes, or variables directly into the current namespace."
+      ],
+      "metadata": {
+        "id": "ROqXNGyulcop"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "7- How can you handle multiple exceptions in Python ?"
+      ],
+      "metadata": {
+        "id": "I0pm3HMxmI80"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans- Python provides several ways to handle multiple exceptions using try-except.\n",
+        "1. Using Multiple except Blocks.\n",
+        "2- Using a Single except with a Tuple.\n",
+        "3-Using except Exception as e (Catch-All)\n",
+        "4- Using else and finally."
+      ],
+      "metadata": {
+        "id": "E2w80e1vmShI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "8- What is the purpose of the with statement when handling files in Python ?"
+      ],
+      "metadata": {
+        "id": "A3Jd02jnnInE"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans- Purpose of the with Statement in File Handling\n",
+        "The with statement in Python is used to automatically manage resources, such as opening and closing files. It ensures that a file is properly closed, even if an exception occurs."
+      ],
+      "metadata": {
+        "id": "8NaAAE_OtfY5"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "9- What is the difference between multithreading and multiprocessing ?"
+      ],
+      "metadata": {
+        "id": "VFLQtqIYtz_y"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans -Both multithreading and multiprocessing are used to execute tasks concurrently, but they differ in how they utilize system resources.\n",
+        "Multithreading allows multiple threads (lightweight processes) to run within the same process.\n",
+        "\n",
+        "✔ Uses threads within a single process.\n",
+        "✔ Threads share memory space and global variables.\n",
+        "✔ Best for I/O-bound tasks (e.g., file reading, network requests).\n",
+        "Multiprocessing creates separate processes, each with its own memory space.\n",
+        "\n",
+        "✔ Uses multiple processes (each with its own Python interpreter).\n",
+        "✔ No GIL limitation → True parallel execution"
+      ],
+      "metadata": {
+        "id": "woqilxGat8eF"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "10-What are the advantages of using logging in a program ?"
+      ],
+      "metadata": {
+        "id": "UTvAV7-5u2lS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Logging is essential for monitoring, debugging, and maintaining a program."
+      ],
+      "metadata": {
+        "id": "bf_FtmeBvEFE"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "11- What is memory management in Python ?"
+      ],
+      "metadata": {
+        "id": "nB4UpNJbvVjq"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans- Memory management in Python refers to how the language allocates, manages, and deallocates memory automatically. Python uses a private heap space, which is managed by the Python Memory Manager and the Garbage Collector."
+      ],
+      "metadata": {
+        "id": "97Gwfb5HvbRE"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "12- What are the basic steps involved in exception handling in Python ?"
+      ],
+      "metadata": {
+        "id": "sZMAJC6evn7A"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans -Basic Steps in Exception Handling in Python\n",
+        "Exception handling in Python follows a structured approach using try, except, else, and finally blocks. Here are the key steps:\n",
+        "1. Use a try Block to Wrap Risky Code\n",
+        "2. Catch Exceptions with except\n",
+        "3. Use else for Code That Runs if No Exception Occurs\n",
+        "4. Use finally to Execute Cleanup Code"
+      ],
+      "metadata": {
+        "id": "G6ilHU0vvuvS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "13- Why is memory management important in Python ?"
+      ],
+      "metadata": {
+        "id": "VlgRHsT6weCt"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Memory management is crucial in Python to ensure efficient use of system resources, prevent memory leaks, and optimize performance. Python’s automatic memory management handles allocation and deallocation, but understanding it helps developers write more efficient code."
+      ],
+      "metadata": {
+        "id": "d1ypWKDVwmbg"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "14- What is the role of try and except in exception handling ?"
+      ],
+      "metadata": {
+        "id": "XEOiJIUGwxjG"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans- In Python, try and except are used to handle exceptions and prevent program crashes. They allow the program to detect and respond to errors gracefully instead of terminating unexpectedly."
+      ],
+      "metadata": {
+        "id": "_CsPAmpZw5Ps"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "15- How does Python's garbage collection system work ?"
+      ],
+      "metadata": {
+        "id": "-ZT56TBGxI1B"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans -Python’s garbage collection (GC) system automatically manages memory by reclaiming unused objects to prevent memory leaks. It works using two main techniques:\n",
+        "\n",
+        "Reference Counting (Primary mechanism)\n",
+        "Cyclic Garbage Collection (Handles circular references)"
+      ],
+      "metadata": {
+        "id": "PZv5d2_4xPtz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "16-What is the purpose of the else block in exception handling ?"
+      ],
+      "metadata": {
+        "id": "eVAXM4q2xiW3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans- Purpose of the else Block in Exception Handling\n",
+        "The else block in exception handling is used to specify code that should run only if no exceptions occur in the try block. It helps separate error handling (except) from successful execution logic (else), making the code cleaner and more readable."
+      ],
+      "metadata": {
+        "id": "FKKY6wYAx-fF"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "17- What are the common logging levels in Python ?"
+      ],
+      "metadata": {
+        "id": "kg0QuRbpyNBf"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans -Python’s logging module provides five standard logging levels, each representing a different severity of events. These levels help categorize log messages and filter output based on importance.\n",
+        "1. DEBUG (Level 10) – Detailed Information for Debugging\n",
+        "2. INFO (Level 20) – General Application Events\n",
+        "3. WARNING (Level 30) – Potential Issues\n",
+        "4. ERROR (Level 40) – Serious Problems\n",
+        "5. CRITICAL (Level 50) – Severe Errors"
+      ],
+      "metadata": {
+        "id": "GbXjB6hZyTp8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "18- What is the difference between os.fork() and multiprocessing in Python ?"
+      ],
+      "metadata": {
+        "id": "dGyH5PS4zNmZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Difference Between os.fork() and multiprocessing in Python\n",
+        "Both os.fork() and the multiprocessing module are used for creating new processes, but they work differently and have different use cases.\n",
+        "1. os.fork() – Creates a Child Process (UNIX/Linux Only)\n",
+        "os.fork() directly creates a new process by duplicating the current process.\n",
+        "The child process is an exact copy of the parent process, but with a different Process ID (PID).\n",
+        "Works only on UNIX-based systems (Linux, macOS) – not available on Windows.\n",
+        "2. multiprocessing – High-Level Process Management (Cross-Platform)\n",
+        "The multiprocessing module spawns new processes independently instead of duplicating the parent process.\n",
+        "Works on Windows, Linux, and macOS.\n",
+        "Each process has its own memory space (avoiding Global Interpreter Lock (GIL) issues)."
+      ],
+      "metadata": {
+        "id": "p6nTz-WbzVRx"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "19- What is the importance of closing a file in Python ?"
+      ],
+      "metadata": {
+        "id": "GVPA3Ozd0Bpg"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Importance of Closing a File in Python\n",
+        "1. Frees System Resources\n",
+        "2. Prevents Data Loss or Corruption\n",
+        "3. Avoids Too Many Open Files Error\n",
+        "4. Prevents Unintended File Locks"
+      ],
+      "metadata": {
+        "id": "9yFZpJmM0K7A"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "20-What is the difference between file.read() and file.readline() in Python ?"
+      ],
+      "metadata": {
+        "id": "C8BcnRzv01Ng"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Difference Between file.read() and file.readline() in Python\n",
+        "1. file.read() – Reads the Entire File or a Specified Number of Bytes\n",
+        "Reads the entire file as a single string (default).\n",
+        "Can also read a specific number of bytes if an argument is provided.\n",
+        "Useful when you need the full content at once.\n",
+        "2. file.readline() – Reads One Line at a Time\n",
+        "Reads one line from the file at a time, stopping at the newline (\\n).\n",
+        "Useful for reading large files line by line."
+      ],
+      "metadata": {
+        "id": "2t9egNm90_Jp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "21- What is the logging module in Python used for ?"
+      ],
+      "metadata": {
+        "id": "gresu8DZ1hbp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-The logging module in Python is used for tracking events and debugging in a program by recording messages with different severity levels. It provides a flexible and efficient way to log errors, warnings, and informational messages during program execution."
+      ],
+      "metadata": {
+        "id": "Ipc_Jmcr20Nz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "22- What is the os module in Python used for in file handling ?"
+      ],
+      "metadata": {
+        "id": "i4uQ9Axi2-8V"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-The os module in Python provides functions to interact with the operating system, especially for file and directory operations. It allows you to create, delete, rename, move, and check file properties programmatically."
+      ],
+      "metadata": {
+        "id": "8ZSoewdLiM4q"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "23- What are the challenges associated with memory management in Python ?"
+      ],
+      "metadata": {
+        "id": "5sBEKdwz3hyz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Python has an automatic memory management system, but it still faces some challenges that developers should be aware of.\n",
+        "1. Garbage Collection Overhead\n",
+        "2. Memory Leaks\n",
+        "3. Global Interpreter Lock (GIL) Limitation\n",
+        "4. High Memory Usage Due to Object Overhead\n",
+        "5. Fragmentation in Long-Running Applications\n",
+        "6. Reference Counting and Cyclic References"
+      ],
+      "metadata": {
+        "id": "ODsB2XZn3pz8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "24-How do you raise an exception manually in Python ?"
+      ],
+      "metadata": {
+        "id": "ciZG3qnw4Owt"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-In Python, you can manually raise an exception using the raise keyword. This is useful when you need to enforce specific conditions in your program."
+      ],
+      "metadata": {
+        "id": "9J13Y9Bl4V91"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "25-Why is it important to use multithreading in certain applications?"
+      ],
+      "metadata": {
+        "id": "F4tUyxDh4lFr"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ans-Multithreading allows a program to run multiple tasks (threads) concurrently, improving efficiency and responsiveness. It is particularly useful in applications that involve I/O operations, user interfaces, or real-time processing."
+      ],
+      "metadata": {
+        "id": "qw-jkVGz4rRm"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Practical Questions Answers --"
+      ],
+      "metadata": {
+        "id": "PIca9XDCFRaw"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#  How can you open a file for writing in Python and write a string to it ?\n",
+        "# Open the file in write mode\n",
+        "with open(\"example.txt\", \"w\") as file:\n",
+        "    # Write a string to the file\n",
+        "    file.write(\"Hello, this is a test string!\")\n",
+        "\n",
+        "print(\"File written successfully.\")"
+      ],
+      "metadata": {
+        "id": "KKqO7_MpFV1X",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "6cab5401-5eb2-4c22-c458-bba479ef4d25"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "File written successfully.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a Python program to read the contents of a file and print each line .\n",
+        "# Open the file in read mode\n",
+        "with open(\"example.txt\", \"r\") as file:\n",
+        "    # Read and print each line\n",
+        "    for line in file:\n",
+        "        print(line.strip())  # strip() removes trailing newline characters"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rs15CuPPT04G",
+        "outputId": "10dd83dd-d1cb-49b1-c90b-2cdb6928aaa6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello, this is a test string!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "#  How would you handle a case where the file doesn't exist while trying to open it for reading .\n",
+        "try:\n",
+        "    with open(\"example.txt\", \"r\") as file:\n",
+        "        for line in file:\n",
+        "            print(line.strip())  # Print each line without extra newlines\n",
+        "except FileNotFoundError:\n",
+        "    print(\"Error: The file does not exist. Please check the file name and try again.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8DdpQu5OUIr4",
+        "outputId": "5543e298-4b8d-4b4f-a208-3c1171e1c169"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello, this is a test string!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a Python script that reads from one file and writes its content to another file .\n",
+        "# Define source and destination file names\n",
+        "source_file = \"source.txt\"\n",
+        "destination_file = \"destination.txt\"\n",
+        "\n",
+        "try:\n",
+        "    # Open source file for reading and destination file for writing\n",
+        "    with open(source_file, \"r\") as src, open(destination_file, \"w\") as dest:\n",
+        "        for line in src:\n",
+        "            dest.write(line)  # Write each line to the destination file\n",
+        "\n",
+        "    print(f\"Contents of '{source_file}' copied to '{destination_file}' successfully.\")\n",
+        "\n",
+        "except FileNotFoundError:\n",
+        "    print(f\"Error: '{source_file}' does not exist. Please check the file name.\")\n",
+        "except Exception as e:\n",
+        "    print(f\"An error occurred: {e}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "C2u25y-YUbb-",
+        "outputId": "1891d765-ede5-4193-c240-c041d2d18a0c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Error: 'source.txt' does not exist. Please check the file name.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# How would you catch and handle division by zero error in Python\n",
+        "try:\n",
+        "    numerator = int(input(\"Enter the numerator: \"))\n",
+        "    denominator = int(input(\"Enter the denominator: \"))\n",
+        "\n",
+        "    result = numerator / denominator  # This might raise ZeroDivisionError\n",
+        "    print(f\"Result: {result}\")\n",
+        "\n",
+        "except ZeroDivisionError:\n",
+        "    print(\"Error: Division by zero is not allowed. Please enter a nonzero denominator.\")\n",
+        "except ValueError:\n",
+        "    print(\"Error: Please enter valid numeric values.\")"
+      ],
+      "metadata": {
+        "id": "XvpZs3oZWZLi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a Python program that logs an error message to a log file when a division by zero exception occurs .\n",
+        "import logging\n",
+        "\n",
+        "# Configure logging to write errors to a file\n",
+        "logging.basicConfig(filename=\"error_log.txt\", level=logging.ERROR,\n",
+        "                    format=\"%(asctime)s - %(levelname)s - %(message)s\")\n",
+        "\n",
+        "try:\n",
+        "    numerator = int(input(\"Enter the numerator: \"))\n",
+        "    denominator = int(input(\"Enter the denominator: \"))\n",
+        "\n",
+        "    result = numerator / denominator  # Might raise ZeroDivisionError\n",
+        "    print(f\"Result: {result}\")\n",
+        "\n",
+        "except ZeroDivisionError:\n",
+        "    error_message = \"Error: Division by zero occurred.\"\n",
+        "    print(error_message)\n",
+        "    logging.error(error_message)  # Log the error to the file\n",
+        "except ValueError:\n",
+        "    error_message = \"Error: Invalid input. Please enter numeric values.\"\n",
+        "    print(error_message)\n",
+        "    logging.error(error_message)\n",
+        "\n",
+        "print(\"Program execution completed.\")"
+      ],
+      "metadata": {
+        "id": "_7VDzLpoWtEf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#How do you log information at different levels (INFO, ERROR, WARNING) in Python using the logging module\n",
+        "import logging\n",
+        "\n",
+        "# Configure logging to write to a file and display logs in the console\n",
+        "logging.basicConfig(\n",
+        "    filename=\"app.log\",\n",
+        "    level=logging.DEBUG,  # Set the lowest level to capture all messages\n",
+        "    format=\"%(asctime)s - %(levelname)s - %(message)s\",\n",
+        "    filemode=\"w\"  # Overwrites the log file each time the script runs\n",
+        ")\n",
+        "\n",
+        "# Logging messages at different levels\n",
+        "logging.debug(\"This is a DEBUG message (useful for debugging).\")\n",
+        "logging.info(\"This is an INFO message (general program execution).\")\n",
+        "logging.warning(\"This is a WARNING message (something might be wrong).\")\n",
+        "logging.error(\"This is an ERROR message (an issue occurred but can continue).\")\n",
+        "logging.critical(\"This is a CRITICAL message (serious problem, may stop program).\")\n",
+        "\n",
+        "print(\"Logging completed. Check the 'app.log' file for logged messages.\")"
+      ],
+      "metadata": {
+        "id": "77WoVM8-XCsk"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a program to handle a file opening error using exception handling .\n",
+        "try:\n",
+        "    # Attempt to open the file\n",
+        "    with open(\"example.txt\", \"r\") as file:\n",
+        "        content = file.read()\n",
+        "        print(\"File contents:\\n\", content)\n",
+        "\n",
+        "except FileNotFoundError:\n",
+        "    print(\"Error: The file does not exist. Please check the file name and try again.\")\n",
+        "except PermissionError:\n",
+        "    print(\"Error: You do not have permission to access this file.\")\n",
+        "except Exception as e:\n",
+        "    print(f\"An unexpected error occurred: {e}\")"
+      ],
+      "metadata": {
+        "id": "UrgPGvneXfE0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " # How can you read a file line by line and store its content in a list in Python .\n",
+        "with open(\"example.txt\", \"r\") as file:\n",
+        "    lines = file.readlines()  # Reads all lines into a list\n",
+        "\n",
+        "# Print the list\n",
+        "print(lines)\n",
+        "lines = []\n",
+        "with open(\"example.txt\", \"r\") as file:\n",
+        "    for line in file:\n",
+        "        lines.append(line.strip())  # Removes extra newlines and adds to the list\n",
+        "\n",
+        "print(lines)"
+      ],
+      "metadata": {
+        "id": "t-EQzW3uX8mz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# How can you append data to an existing file in Python ?\n",
+        "# Open the file in append mode\n",
+        "with open(\"example.txt\", \"a\") as file:\n",
+        "    file.write(\"\\nThis is a new line added to the file.\")  # Append new content\n",
+        "\n",
+        "print(\"Data appended successfully.\")"
+      ],
+      "metadata": {
+        "id": "TpoD9ZWcYcyQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a Python program that uses a try-except block to handle an error when attempting to access a dictionary key that doesn't exist .\n",
+        "# Sample dictionary\n",
+        "student_grades = {\"Alice\": 85, \"Bob\": 90, \"Charlie\": 78}\n",
+        "\n",
+        "try:\n",
+        "    # Attempt to access a key that may not exist\n",
+        "    name = input(\"Enter student name: \")\n",
+        "    grade = student_grades[name]  # Might raise KeyError\n",
+        "    print(f\"{name}'s grade: {grade}\")\n",
+        "\n",
+        "except KeyError:\n",
+        "    print(f\"Error: No record found for '{name}'. Please check the name and try again.\")"
+      ],
+      "metadata": {
+        "id": "dVkGuRIxY_GG"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a program that demonstrates using multiple except blocks to handle different types of exceptions.\n",
+        "try:\n",
+        "    # Get input from the user\n",
+        "    num1 = int(input(\"Enter the numerator: \"))\n",
+        "    num2 = int(input(\"Enter the denominator: \"))\n",
+        "\n",
+        "    # Perform division\n",
+        "    result = num1 / num2  # Might raise ZeroDivisionError\n",
+        "    print(f\"Result: {result}\")\n",
+        "\n",
+        "    # Access a dictionary key\n",
+        "    my_dict = {\"a\": 10, \"b\": 20}\n",
+        "    key = input(\"Enter a key to access the dictionary: \")\n",
+        "    value = my_dict[key]  # Might raise KeyError\n",
+        "    print(f\"Value for key '{key}': {value}\")\n",
+        "\n",
+        "except ValueError:\n",
+        "    print(\"Error: Invalid input! Please enter numeric values.\")\n",
+        "except ZeroDivisionError:\n",
+        "    print(\"Error: Division by zero is not allowed.\")\n",
+        "except KeyError:\n",
+        "    print(\"Error: The key does not exist in the dictionary.\")\n",
+        "except Exception as e:\n",
+        "    print(f\"An unexpected error occurred: {e}\")\n",
+        "\n",
+        "print(\"Program execution completed.\")"
+      ],
+      "metadata": {
+        "id": "XTVIy8WRZYyo"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# How would you check if a file exists before attempting to read it in Python\n",
+        "from pathlib import Path\n",
+        "\n",
+        "file_path = Path(\"example.txt\")\n",
+        "\n",
+        "if file_path.exists():\n",
+        "    with file_path.open(\"r\") as file:\n",
+        "        content = file.read()\n",
+        "        print(\"File contents:\\n\", content)\n",
+        "else:\n",
+        "    print(\"Error: The file does not exist.\")"
+      ],
+      "metadata": {
+        "id": "vn2ZhwpVZ15J"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a program that uses the logging module to log both informational and error messages .\n",
+        "import logging\n",
+        "\n",
+        "# Configure logging settings\n",
+        "logging.basicConfig(\n",
+        "    filename=\"app.log\",  # Log file name\n",
+        "    level=logging.DEBUG,  # Log level (captures INFO and ERROR)\n",
+        "    format=\"%(asctime)s - %(levelname)s - %(message)s\",\n",
+        ")\n",
+        "\n",
+        "def divide_numbers(num1, num2):\n",
+        "    try:\n",
+        "        logging.info(f\"Attempting to divide {num1} by {num2}\")\n",
+        "        result = num1 / num2\n",
+        "        logging.info(f\"Division successful: {num1} / {num2} = {result}\")\n",
+        "        return result\n",
+        "    except ZeroDivisionError:\n",
+        "        logging.error(\"Error: Division by zero attempted.\")\n",
+        "        return \"Error: Cannot divide by zero.\"\n",
+        "    except Exception as e:\n",
+        "        logging.error(f\"An unexpected error occurred: {e}\")\n",
+        "        return f\"Unexpected error: {e}\"\n",
+        "\n",
+        "# Example usage\n",
+        "num1 = int(input(\"Enter the numerator: \"))\n",
+        "num2 = int(input(\"Enter the denominator: \"))\n",
+        "\n",
+        "result = divide_numbers(num1, num2)\n",
+        "print(result)\n",
+        "\n",
+        "print(\"Logging completed. Check 'app.log' for details.\")"
+      ],
+      "metadata": {
+        "id": "m8bMs4ZWbhSU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a Python program that prints the content of a file and handles the case when the file is empty\n",
+        "import os\n",
+        "\n",
+        "def read_file(file_path):\n",
+        "    try:\n",
+        "        # Check if the file exists\n",
+        "        if not os.path.exists(file_path):\n",
+        "            print(\"Error: The file does not exist.\")\n",
+        "            return\n",
+        "\n",
+        "        # Open and read the file\n",
+        "        with open(file_path, \"r\") as file:\n",
+        "            content = file.read()\n",
+        "\n",
+        "            if not content:  # Check if the file is empty\n",
+        "                print(\"The file is empty.\")\n",
+        "            else:\n",
+        "                print(\"File contents:\\n\", content)\n",
+        "\n",
+        "    except Exception as e:\n",
+        "        print(f\"An error occurred: {e}\")\n",
+        "\n",
+        "# Example usage\n",
+        "file_path = \"example.txt\"  # Change this to your file name\n",
+        "read_file(file_path)"
+      ],
+      "metadata": {
+        "id": "hXQl1nUjb2xA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Demonstrate how to use memory profiling to check the memory usage of a small program\n",
+        "pip install memory-profiler\n",
+        "from memory_profiler import profile\n",
+        "\n",
+        "@profile\n",
+        "def memory_intensive_function():\n",
+        "    # Create a large list\n",
+        "    large_list = [i for i in range(1000000)]  # List with 1 million numbers\n",
+        "    sum_list = sum(large_list)  # Compute sum to keep list in memory\n",
+        "    return sum_list\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    result = memory_intensive_function()\n",
+        "    print(\"Computation completed.\")"
+      ],
+      "metadata": {
+        "id": "tF7wXUm-cO-3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "python memory_test.py"
+      ],
+      "metadata": {
+        "id": "IJttERHScnb1"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write a Python program to create and write a list of numbers to a file, one number per line\n",
+        "# Define the list of numbers\n",
+        "numbers = list(range(1, 21))  # Generates numbers from 1 to 20\n",
+        "\n",
+        "# Define the file name\n",
+        "file_name = \"numbers.txt\"\n",
+        "\n",
+        "try:\n",
+        "    # Open the file in write mode\n",
+        "    with open(file_name, \"w\") as file:\n",
+        "        for number in numbers:\n",
+        "            file.write(f\"{number}\\n\")  # Write each number on a new line\n",
+        "\n",
+        "    print(f\"Numbers written to {file_name} successfully.\")\n",
+        "\n",
+        "except Exception as e:\n",
+        "    print(f\"An error occurred: {e}\")"
+      ],
+      "metadata": {
+        "id": "sNPiaDCIcsqs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# How would you implement a basic logging setup that logs to a file with rotation after 1 MB ?\n",
+        "import logging\n",
+        "from logging.handlers import RotatingFileHandler\n",
+        "\n",
+        "# Configure logging\n",
+        "log_file = \"app.log\"\n",
+        "max_size = 1 * 1024 * 1024  # 1MB\n",
+        "backup_count = 3  # Keep 3 old log files\n",
+        "\n",
+        "# Create a rotating file handler\n",
+        "handler = RotatingFileHandler(log_file, maxBytes=max_size, backupCount=backup_count)\n",
+        "handler.setLevel(logging.INFO)\n",
+        "\n",
+        "# Define log format\n",
+        "formatter = logging.Formatter(\"%(asctime)s - %(levelname)s - %(message)s\")\n",
+        "handler.setFormatter(formatter)\n",
+        "\n",
+        "# Get the logger and attach the handler\n",
+        "logger = logging.getLogger(\"RotatingLogger\")\n",
+        "logger.setLevel(logging.INFO)\n",
+        "logger.addHandler(handler)\n",
+        "\n",
+        "# Example: Logging multiple messages\n",
+        "for i in range(10000):\n",
+        "    logger.info(f\"This is log message {i}\")\n",
+        "\n",
+        "print(f\"Logging completed. Check {log_file} and rotated log files.\")"
+      ],
+      "metadata": {
+        "id": "kiIjnfRbezkJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#"
+      ],
+      "metadata": {
+        "id": "ooIaqlr2to9Q"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
